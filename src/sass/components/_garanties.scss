@@ -1,0 +1,66 @@
+.garanties {
+  @include section;
+  @include mq(tab) {
+    @include section(50px, 50px);
+  }
+  @include mq(desk) {
+    @include section(85px, 85px);
+  }
+}
+
+.garanties__container {
+  @include mq(mob) {
+    flex-direction: column-reverse;
+    gap: 32px;
+  }
+  @include mq(tab) {
+    @include flexed(center, null);
+    flex-direction: row;
+    gap: 60px;
+  }
+  @include mq(desk) {
+    @include flexed(flex-end, null);
+    gap: 150px;
+  }
+}
+
+.garanties__image {
+  @include mq(mob-only) {
+    margin-bottom: 32px;
+  }
+  @include mq(tab) {
+    margin-left: -60px;
+  }
+  @include mq(desk) {
+    margin-left: -80px;
+  }
+}
+
+@include mq(desk) {
+  .garanties__content {
+    width: 380px;
+  }
+}
+
+.garanties__item:not(:last-child) {
+  @include mq(mob-only) {
+    margin-bottom: 24px;
+  }
+  @include mq(tab) {
+    margin-bottom: 32px;
+  }
+  @include mq(desk) {
+    margin-bottom: 40px;
+  }
+}
+.garanties__title {
+  @extend %title;
+}
+.garanties__icon {
+  margin-bottom: 24px;
+}
+
+.garanties__subtitle {
+  @extend %subtitle;
+  margin-bottom: 16px;
+}

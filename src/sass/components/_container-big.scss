@@ -1,0 +1,21 @@
+.container-big {
+  margin-left: auto;
+  margin-right: auto;
+  @include mq(mob) {
+    max-width: 320px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  @include mq(tab) {
+    max-width: 768px;
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  @include mq(desk) {
+    max-width: 1440px;
+    padding-left: 190px;
+    padding-right: 190px;
+  }
+}

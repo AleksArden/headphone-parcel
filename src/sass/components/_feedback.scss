@@ -1,0 +1,245 @@
+// .feedback {
+//   @include section;
+//   @include mq(tab) {
+//     @include section(50px, 50px);
+//   }
+//   @include mq(desk) {
+//     @include section(85px, 85px);
+//   }
+// }
+.feedback__wrapper {
+  @include mq(desk) {
+    display: flex;
+  }
+}
+.feedback__title {
+  @extend %title;
+  @include mq(desk) {
+    margin-left: 110px;
+  }
+}
+.feedback__action {
+  margin-bottom: 40px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--color-title);
+  @include mq(tab) {
+    margin-bottom: 52px;
+    font-size: 20px;
+  }
+  @include mq(desk) {
+    margin: 0 0 0 110px;
+    font-size: 28px;
+  }
+}
+.feedback__form {
+  width: 510px;
+}
+
+.feedback__label {
+  display: block;
+  margin-bottom: 32px;
+}
+.feedback__label:nth-child(5) {
+  margin-bottom: 40px;
+  @include mq(tab) {
+    margin-bottom: 52px;
+  }
+}
+.feedback__input {
+  width: 100%;
+  padding-bottom: 16px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  color: var(--color-text-primery);
+  background-color: var(--bg-color-primery);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+
+  transition: border-color var(--time-duration) var(--timing-function);
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+  }
+  &:focus {
+    border-color: var(--bg-btn-hero);
+  }
+}
+.feedback__textarea {
+  width: 100%;
+  max-height: 120px;
+  padding-bottom: 16px;
+  resize: none;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  color: var(--color-text-primery);
+  background-color: var(--bg-color-primery);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  transition: border-color var(--time-duration) var(--timing-function);
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+  }
+  &:focus {
+    border-color: var(--bg-btn-hero);
+  }
+}
+.feedback__input-checkbox {
+  appearance: none;
+}
+.feedback__label--checkbox {
+  height: 23px;
+  position: relative;
+  padding-left: 54px;
+  color: var(--color-text-primery);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.25;
+}
+.feedback__label--checkbox::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 28px;
+  outline: 2px solid #e9edfa;
+  outline-offset: -2px;
+  margin-top: -5px;
+}
+.feedback__label--checkbox::after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 25px;
+  border-right: 4px solid var(--bg-btn-hero);
+  border-bottom: 4px solid var(--bg-btn-hero);
+  border-radius: 3px;
+  opacity: 0;
+  transform: rotate(45deg);
+  margin-left: 10px;
+  margin-top: -14px;
+}
+.feedback__input-checkbox:checked + .feedback__label--checkbox::after {
+  opacity: 1;
+}
+.feedback__link {
+  color: var(--color-text-primery);
+}
+.feedback__button {
+  @include mq(mob-only) {
+    width: 100%;
+  }
+  padding: 20px 91px 19px 90px;
+  @include mq(tab) {
+    padding: 20px 98px 19px 98px;
+  }
+  background-color: var(--bg-color-primery);
+  color: var(--color-btn);
+  // border: 1px solid var(--bg-btn-hero);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: 2px solid var(--bg-btn-hero);
+  outline-offset: -2px;
+  position: relative;
+  vertical-align: middle;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.draw {
+  transition: color 0.25s;
+
+  &::before,
+  &::after {
+    // Set border to invisible, so we don't see a 4px border on a 0x0 element before the transition starts
+    border: 2px solid transparent;
+
+    width: 0;
+    height: 0;
+  }
+
+  // This covers the top & right borders (expands right, then down)
+  &::before {
+    top: 0;
+    left: 0;
+  }
+
+  // And this the bottom & left borders (expands left, then up)
+  &::after {
+    bottom: 0;
+    right: 0;
+  }
+
+  &:hover {
+    color: var(--bg-btn-hero);
+  }
+
+  // Hover styles
+  &:hover::before,
+  &:hover::after {
+    width: 100%;
+    height: 100%;
+  }
+
+  &:hover::before {
+    border-top-color: var(--color-btn); // Make borders visible
+    border-right-color: var(--color-btn);
+    transition: width 0.25s ease-out,
+      // Width expands first
+      height 0.25s ease-out 0.25s; // And then height
+  }
+
+  &:hover::after {
+    border-bottom-color: var(--color-btn); // Make borders visible
+    border-left-color: var(--color-btn);
+    transition: border-color 0s ease-out 0.5s,
+      // Wait for ::before to finish before showing border
+      width 0.25s ease-out 0.5s,
+      // And then exanding width
+      height 0.25s ease-out 0.75s; // And finally height
+  }
+}
+
+// Inherits from .draw
+.meet {
+  &:hover {
+    color: var(--bg-btn-hero);
+  }
+
+  // Start ::after in same position as ::before
+  &::after {
+    top: 0;
+    left: 0;
+  }
+
+  // Change colors
+  &:hover::before {
+    border-top-color: var(--color-btn);
+    border-right-color: var(--color-btn);
+  }
+
+  &:hover::after {
+    border-bottom-color: var(--color-btn);
+    border-left-color: var(--color-btn);
+    transition: // Animate height first, then width
+      height 0.25s ease-out, width 0.25s ease-out 0.25s;
+  }
+}
