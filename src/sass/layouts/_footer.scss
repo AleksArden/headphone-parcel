@@ -1,0 +1,48 @@
+.footer {
+  @include section;
+  @include mq(tab) {
+    @include section(50px, 50px);
+  }
+  @include mq(desk) {
+    @include section(85px, 85px);
+  }
+}
+.footer__wrapper {
+  @include flexed(null, space-between);
+  flex-wrap: wrap;
+  @include mq(tab) {
+    @include flexed(flex-end, space-between);
+  }
+  @include mq(desk) {
+    @include flexed(center, flex-start);
+    gap: 50px;
+  }
+}
+.footer__list {
+  @include mq(mob-only) {
+    margin-bottom: 52px;
+  }
+  @include mq(desk) {
+    @include flexed(center, null);
+    gap: 50px;
+  }
+}
+.footer__item:not(:last-child) {
+  @include mq(no-desk) {
+    margin-bottom: 24px;
+  }
+}
+.footer__link {
+  font-size: 14px;
+  line-height: 1.25;
+  color: rgba(255, 255, 255, 0.3);
+  @include mq(desk) {
+    font-size: 16px;
+  }
+}
+.footer__link-tel {
+  margin-left: auto;
+  margin-right: -80px;
+  font-size: 16px;
+  line-height: 1.2;
+}

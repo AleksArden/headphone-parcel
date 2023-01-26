@@ -44,11 +44,17 @@
 .feedback__label {
   display: block;
   margin-bottom: 32px;
+  @include mq(desk) {
+    margin-bottom: 42px;
+  }
 }
 .feedback__label:nth-child(5) {
   margin-bottom: 40px;
   @include mq(tab) {
     margin-bottom: 52px;
+  }
+  @include mq(desk) {
+    margin-bottom: 90px;
   }
 }
 .feedback__input {
@@ -62,6 +68,9 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 1.25;
+  @include mq(desk) {
+    font-size: 20px;
+  }
 
   transition: border-color var(--time-duration) var(--timing-function);
 
@@ -85,6 +94,9 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 1.25;
+  @include mq(desk) {
+    font-size: 20px;
+  }
   transition: border-color var(--time-duration) var(--timing-function);
   &::placeholder {
     color: rgba(255, 255, 255, 0.3);
@@ -104,6 +116,9 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 1.25;
+  @include mq(desk) {
+    font-size: 16px;
+  }
 }
 .feedback__label--checkbox::before {
   position: absolute;
@@ -144,6 +159,9 @@
   padding: 20px 91px 19px 90px;
   @include mq(tab) {
     padding: 20px 98px 19px 98px;
+  }
+  @include mq(desk) {
+    padding: 22px 197px 22px 197px;
   }
   background-color: var(--bg-color-primery);
   color: var(--color-btn);
