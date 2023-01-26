@@ -9,19 +9,10 @@
 }
 .questions__title {
   @extend %title;
-  @include mq(desk) {
-    margin-left: 110px;
-  }
 }
-.questions__list {
-  @include mq(desk) {
-    width: 1060px;
-    margin-left: 110px;
-  }
-}
-.questions__item {
-  display: flex;
 
+.questions__item {
+  @include flexed(null, null);
   padding-bottom: 24px;
   border-bottom: 2px solid rgba(255, 255, 255, 0.1);
   @include mq(tab) {
@@ -44,7 +35,7 @@
   font-weight: 400;
   font-size: 20px;
   line-height: 1;
-  color: #e7e7e7;
+  color: var(--color-title);
   @include mq(tab) {
     line-height: 1.1;
   }

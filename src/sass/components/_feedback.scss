@@ -1,40 +1,44 @@
-// .feedback {
-//   @include section;
-//   @include mq(tab) {
-//     @include section(50px, 50px);
-//   }
-//   @include mq(desk) {
-//     @include section(85px, 85px);
-//   }
-// }
+.feedback {
+  @include section;
+  @include mq(tab) {
+    @include section(50px, 50px);
+  }
+  @include mq(desk) {
+    @include section(85px, 85px);
+  }
+}
 .feedback__wrapper {
   @include mq(desk) {
-    display: flex;
+    @include flexed(null, null);
+    gap: 150px;
+  }
+}
+.feedback__thumb {
+  @include mq(desk) {
+    width: 400px;
   }
 }
 .feedback__title {
   @extend %title;
-  @include mq(desk) {
-    margin-left: 110px;
-  }
 }
 .feedback__action {
+  color: var(--color-title);
   margin-bottom: 40px;
   font-weight: 600;
   font-size: 16px;
   line-height: 1.25;
-  color: var(--color-title);
   @include mq(tab) {
     margin-bottom: 52px;
     font-size: 20px;
   }
   @include mq(desk) {
-    margin: 0 0 0 110px;
     font-size: 28px;
   }
 }
 .feedback__form {
-  width: 510px;
+  @include mq(desk) {
+    width: 510px;
+  }
 }
 
 .feedback__label {
@@ -93,8 +97,8 @@
   appearance: none;
 }
 .feedback__label--checkbox {
-  height: 23px;
   position: relative;
+  height: 23px;
   padding-left: 54px;
   color: var(--color-text-primery);
   font-weight: 400;
@@ -106,26 +110,26 @@
   content: '';
   top: 0;
   left: 0;
+  margin-top: -5px;
   width: 30px;
   height: 28px;
   outline: 2px solid #e9edfa;
   outline-offset: -2px;
-  margin-top: -5px;
 }
 .feedback__label--checkbox::after {
   position: absolute;
   content: '';
   top: 0;
   left: 0;
+  margin-left: 10px;
+  margin-top: -14px;
   width: 15px;
   height: 25px;
+  transform: rotate(45deg);
   border-right: 4px solid var(--bg-btn-hero);
   border-bottom: 4px solid var(--bg-btn-hero);
   border-radius: 3px;
   opacity: 0;
-  transform: rotate(45deg);
-  margin-left: 10px;
-  margin-top: -14px;
 }
 .feedback__input-checkbox:checked + .feedback__label--checkbox::after {
   opacity: 1;
@@ -143,7 +147,6 @@
   }
   background-color: var(--bg-color-primery);
   color: var(--color-btn);
-  // border: 1px solid var(--bg-btn-hero);
   font-weight: 600;
   font-size: 16px;
   line-height: 1.2;
@@ -169,20 +172,17 @@
 
   &::before,
   &::after {
-    // Set border to invisible, so we don't see a 4px border on a 0x0 element before the transition starts
     border: 2px solid transparent;
 
     width: 0;
     height: 0;
   }
 
-  // This covers the top & right borders (expands right, then down)
   &::before {
     top: 0;
     left: 0;
   }
 
-  // And this the bottom & left borders (expands left, then up)
   &::after {
     bottom: 0;
     right: 0;
@@ -192,7 +192,6 @@
     color: var(--bg-btn-hero);
   }
 
-  // Hover styles
   &:hover::before,
   &:hover::after {
     width: 100%;
@@ -200,37 +199,29 @@
   }
 
   &:hover::before {
-    border-top-color: var(--color-btn); // Make borders visible
+    border-top-color: var(--color-btn);
     border-right-color: var(--color-btn);
-    transition: width 0.25s ease-out,
-      // Width expands first
-      height 0.25s ease-out 0.25s; // And then height
+    transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
   }
 
   &:hover::after {
-    border-bottom-color: var(--color-btn); // Make borders visible
+    border-bottom-color: var(--color-btn);
     border-left-color: var(--color-btn);
-    transition: border-color 0s ease-out 0.5s,
-      // Wait for ::before to finish before showing border
-      width 0.25s ease-out 0.5s,
-      // And then exanding width
-      height 0.25s ease-out 0.75s; // And finally height
+    transition: border-color 0s ease-out 0.5s, width 0.25s ease-out 0.5s,
+      height 0.25s ease-out 0.75s;
   }
 }
 
-// Inherits from .draw
 .meet {
   &:hover {
     color: var(--bg-btn-hero);
   }
 
-  // Start ::after in same position as ::before
   &::after {
     top: 0;
     left: 0;
   }
 
-  // Change colors
   &:hover::before {
     border-top-color: var(--color-btn);
     border-right-color: var(--color-btn);
@@ -239,7 +230,6 @@
   &:hover::after {
     border-bottom-color: var(--color-btn);
     border-left-color: var(--color-btn);
-    transition: // Animate height first, then width
-      height 0.25s ease-out, width 0.25s ease-out 0.25s;
+    transition: height 0.25s ease-out, width 0.25s ease-out 0.25s;
   }
 }

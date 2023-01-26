@@ -10,7 +10,6 @@
 .sales__container {
   @include mq(desk) {
     position: relative;
-    margin-left: 110px;
   }
 }
 .sales__title {
@@ -21,7 +20,7 @@
   @include mq(desk) {
     position: absolute;
     top: 0;
-    right: -80px;
+    right: -190px;
   }
 }
 .sales__img-black {
@@ -53,7 +52,7 @@
   background-color: var(--bg-color-primery);
 }
 .sales__btn-around-grey {
-  background-color: #dbdbdb;
+  background-color: var(--color-title);
 }
 .sales__list {
   margin-bottom: 32px;
@@ -66,9 +65,7 @@
   }
 }
 .sales__item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include flexed(center, space-between);
   padding-bottom: 24px;
   border-bottom: 2px solid rgba(255, 255, 255, 0.1);
   font-size: 16px;

@@ -1,0 +1,52 @@
+<section class="feedback">
+  <div class="container-big">
+    <div class="feedback__wrapper">
+      <div class="feedback__thumb">
+        <h2 class="feedback__title">зворотній зв'язок</h2>
+        <p class="feedback__action">
+          Ми допоможемо підібрати вам відповідні навушники
+        </p>
+      </div>
+      <form class="feedback__form" autocomplete="off">
+        <label class="feedback__label">
+          <input
+            class="feedback__input"
+            type="text"
+            name="name"
+            placeholder="Ваше ім'я"
+          />
+        </label>
+        <label class="feedback__label">
+          <input
+            class="feedback__input"
+            type="email"
+            name="email"
+            placeholder="Ваш e-mail"
+          />
+        </label>
+        <label class="feedback__label">
+          <textarea
+            class="feedback__textarea"
+            name="feedback"
+            rows="4"
+            placeholder="Нанишить нам повідомлення"
+          ></textarea>
+        </label>
+
+        <input
+          id="checkbox"
+          class="feedback__input-checkbox visually-hidden"
+          type="checkbox"
+          name="feedback"
+        />
+        <label class="feedback__label feedback__label--checkbox" for="checkbox"
+          >I agree to the
+          <span><a href="#" class="feedback__link">privacy policy</a></span>
+        </label>
+        <button class="feedback__button draw meet" type="submit">
+          Відправити
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
