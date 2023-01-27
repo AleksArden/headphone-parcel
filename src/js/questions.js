@@ -1,4 +1,4 @@
-import answers from './answers';
+import { answers } from './answers';
 
 let getRef = x => document.querySelector(x);
 
