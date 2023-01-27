@@ -157,12 +157,7 @@
     width: 100%;
   }
   padding: 20px 91px 19px 90px;
-  @include mq(tab) {
-    padding: 20px 98px 19px 98px;
-  }
-  @include mq(desk) {
-    padding: 22px 197px 22px 197px;
-  }
+
   background-color: var(--bg-color-primery);
   color: var(--color-btn);
   font-weight: 600;
@@ -175,6 +170,14 @@
   outline-offset: -2px;
   position: relative;
   vertical-align: middle;
+  @include mq(tab) {
+    padding: 20px 98px 19px 98px;
+  }
+  @include mq(desk) {
+    padding: 22px 194px 22px 194px;
+    font-size: 20px;
+    line-height: 1.2;
+  }
 
   &::before,
   &::after {

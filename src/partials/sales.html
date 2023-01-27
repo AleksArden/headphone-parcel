@@ -3,6 +3,7 @@
     <div class="sales__container">
       <h2 class="sales__title">bose nc 700</h2>
       <img
+        data-action="black"
         class="sales__img sales__img-black"
         srcset="
           ./images/sales/mobile/sales-mob280.jpg              280w,
@@ -20,6 +21,7 @@
         sizes="(min-width: 1440px) 700px, (min-width: 768px) 648px, (min-width: 320px) 280px, 100vw"
       />
       <img
+        data-action="gray"
         class="sales__img sales__img-grey"
         srcset="
           ./images/sales/tablet/sales-grey-tab648.jpg        648w,
@@ -33,14 +35,23 @@
         alt="навушники"
         sizes="(min-width: 1440px) 700px, (min-width: 768px) 648px, (min-width: 320px) 280px, 100vw"
       />
-      <button
-        type="button"
-        class="sales__btn-around sales__btn-around-black"
-      ></button>
-      <button
-        type="button"
-        class="sales__btn-around sales__btn-around-grey"
-      ></button>
+      <ul class="sales__btn-list">
+        <li>
+          <button
+            type="button"
+            class="sales__btn-around sales__btn-around-black"
+            data-action="black"
+          ></button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="sales__btn-around sales__btn-around-grey"
+            data-action="gray"
+          ></button>
+        </li>
+      </ul>
+
       <ul class="sales__list">
         <li class="sales__item">
           <p>Наявність у магазинах</p>

@@ -16,7 +16,9 @@
   @extend %title;
 }
 .sales__img {
-  margin-bottom: 32px;
+  @include mq(no-desk) {
+    margin-bottom: 32px;
+  }
   @include mq(desk) {
     position: absolute;
     top: 0;
@@ -28,6 +30,9 @@
 }
 .sales__img-grey {
   display: block;
+}
+.sales__btn-list {
+  @include flexed(null, null);
 }
 .sales__btn-around {
   width: 44px;
@@ -61,7 +66,7 @@
   }
   @include mq(desk) {
     width: 400px;
-    margin-bottom: 50px;
+    margin-bottom: 44px;
   }
 }
 .sales__item {
@@ -91,8 +96,8 @@
   letter-spacing: 0.02em;
   text-transform: uppercase;
   @include mq(tab) {
-    margin-bottom: 32px;
-    font-size: 30px;
+    margin-bottom: 30px;
+    font-size: 28px;
   }
   @include mq(desk) {
     font-size: 54px;
